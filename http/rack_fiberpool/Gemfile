@@ -1,0 +1,6 @@
+source :rubygems
+
+gem 'thin'
+gem 'rack-fiber_pool'
+gem 'em-synchrony'
+gem 'yajl-ruby'

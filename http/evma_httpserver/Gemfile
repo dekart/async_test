@@ -1,0 +1,6 @@
+source :rubygems
+
+gem 'eventmachine'
+gem 'em-synchrony'
+gem 'eventmachine_httpserver'
+gem 'yajl-ruby'

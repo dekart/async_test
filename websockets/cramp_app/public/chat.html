@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/swfobject.js"></script>
+    <script type="text/javascript" src="/javascripts/FABridge.js"></script>
+    <script type="text/javascript" src="/javascripts/web_socket.js"></script>
+    <script type="text/javascript">
+
+      // Set URL of your WebSocketMain.swf here:
+      WebSocket.__swfLocation = "javascripts/WebSocketMain.swf";
+
+      var ws;
+
+      function initConnection() {
+        // Connect to Web Socket.
+        // Change host/port here to your own Web Socket server.
+        ws = new WebSocket("ws://localhost:3000/socket");
+
+        // Set event handlers.
+        ws.onopen = function() {
+          console.log({from: 'Host', msg: ' Welcome to chat. Please don\'t hurt each other.'});
+        };
+
+        ws.onmessage = function(e) {
+          // e.data contains received string.
+          console.log($.parseJSON(e.data));
+        };
+        ws.onclose = function() {
+          console.log({message: "Connection closed"});
+          
+          initConnection(); // reconnect
+        };
+      }
+      
+      $(function(){
+        initConnection();
+      })
+      
+    </script>
+  </body>
+</html>

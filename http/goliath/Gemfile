@@ -1,0 +1,5 @@
+source :rubygems
+
+gem 'goliath'
+gem 'em-synchrony'
+gem 'yajl-ruby'
