@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+echo '10000 requests with concurrency 100'
+
+ab -c 100 -n 10000 http://localhost:3000/
+
+ab -c 100 -n 10000 http://localhost:3000/
