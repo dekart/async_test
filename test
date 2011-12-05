@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# Heat up server before running test
+system 'curl http://localhost:3000'
+
 [
   [10,   10_000],
   [100,  10_000],
