@@ -22,7 +22,7 @@ system 'curl http://localhost:3000'
   puts "-" * 50
   
   begin
-    system("ab -c #{ concurrency } -n #{ requests } http://localhost:3000/")
+    system("ab -r -c #{ concurrency } -n #{ requests } http://localhost:3000/")
   rescue
     puts "Test broken"
   end
