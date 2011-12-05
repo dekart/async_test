@@ -3,14 +3,26 @@
 [
   [10,   10_000],
   [100,  10_000],
+  [500,  10_000],
   [1000, 10_000],
+  
+  [10,   50_000],
   [100,  50_000],
+  [500,  50_000],
   [1000, 50_000],
+  
+  [100,  100_000],
+  [500,  100_000],
 ].each do |concurrency, requests|
   puts
   puts "#{requests} requests, concurrency #{ concurrency }"
   puts "-" * 50
   
-  system("ab -c #{ concurrency } -n #{ requests } http://localhost:3000/")
+  begin
+    system("ab -c #{ concurrency } -n #{ requests } http://localhost:3000/")
+  rescue
+    puts "Test broken"
+  end
+  
   puts
 end
